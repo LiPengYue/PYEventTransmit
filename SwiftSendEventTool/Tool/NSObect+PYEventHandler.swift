@@ -27,18 +27,18 @@ private func py_log(_ item: Any) {
  https://www.jianshu.com/p/a5d0ce71259f
  */
 
-open extension NSObject {
+extension NSObject {
     /// block 定义了 两个参数 1. 区分数据的key； 2. 传递的数据
-    open typealias EVENTCALLBACKBLOCK = (_ signalKey: String, _ messageObj: Any)->(Any)?
+    public typealias EVENTCALLBACKBLOCK = (_ signalKey: String, _ messageObj: Any)->(Any)?
     
     /// 对 sender 的block进行赋值
-    open func py_received(sendler Sendler: NSObject?,  eventCallBack: @escaping EVENTCALLBACKBLOCK) {
+    public func py_received(sendler Sendler: NSObject?,  eventCallBack: @escaping EVENTCALLBACKBLOCK) {
         self.py_received_private(sendler: Sendler, eventCallBack: eventCallBack)
     }
     
     /// 调用 self 的block
     @discardableResult
-    open func py_send (signalKey SignalKey: String, message Message: Any) -> (Any)? {
+    public func py_send (signalKey SignalKey: String, message Message: Any) -> (Any)? {
         return self.py_send_private(signalKey: SignalKey, message: Message)
     }
     /// 传输通道
